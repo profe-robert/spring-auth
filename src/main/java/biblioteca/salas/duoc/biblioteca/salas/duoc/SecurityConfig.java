@@ -19,7 +19,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-            .csrf().disable()
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/login").permitAll()  // solo login es público
                 .requestMatchers("/doc/swagger-ui/**", "/v3/api-docs/**", "/doc/swagger-ui.html").permitAll() // Swagger opcionalmente público
