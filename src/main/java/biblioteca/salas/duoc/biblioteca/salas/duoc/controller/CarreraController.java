@@ -25,6 +25,11 @@ public class CarreraController {
     @Autowired
     private CarreraAssembler assembler;
 
+    // @GetMapping
+    // public List<Carrera> getAllCarreras() {
+    //     return carreraService.findAll();
+    // }
+    
     @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
     public CollectionModel<EntityModel<Carrera>> getAllCarreras() {
         List<EntityModel<Carrera>> carreras = carreraService.findAll().stream()
